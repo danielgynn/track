@@ -1,31 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import configureStore from '../configureStore';
-import { getAppHeader } from '../actions/actions';
-import logo from '../logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { App, Login } from '../pages';
 
-const store = configureStore();
+const routes = [{
+  path: "/",
+  exact: true,
+  component: App
+},{
+  path: "/login",
+  exact: true,
+  component: Login
+}];
 
-export default class Root extends Component {
-  constructor(props) {
-    super(props);
+const Root = ({ store }) => (
+  <Provider store={ store }>
+    <Router>
+      <Switch>
+        {routes.map((route, index) => (
+          <Route key={ index } exact={ route.exact } path={ route.path } component={ route.component } />
+        ))}
+      </Switch>
+    </Router>
+  </Provider>
+);
 
-    this.state = {
-      header: getAppHeader().header
-    };
-  }
+Root.propTypes = {
+  store: PropTypes.object.isRequired
+};
 
-  render() {
-    return(
-      <Provider store={ store }>
-        <div className="app">
-          <header className="app-header">
-            <img src={logo} className="app-logo" alt="logo" />
-            <h1 className="app-title">{ this.state.header.title }</h1>
-            <p className="app-intro">{ this.state.header.subtitle }</p>
-          </header>
-        </div>
-      </Provider>
-    )
-  }
-}
+export default Root;

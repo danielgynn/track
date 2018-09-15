@@ -14,7 +14,7 @@ body {
 
 .app-header {
   background-color: #222;
-  height: 180px;
+  height: 240px;
   padding: 20px;
   color: #f3f4f4; }
 
@@ -23,6 +23,36 @@ body {
 
 .app-intro {
   font-size: large; }
+
+.button {
+  white-space: nowrap;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  background: #f3f4f4;
+  padding: 0 14px;
+  box-shadow: 0 4px 1px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  color: #222;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background-size: 200% auto;
+  text-shadow: 0 1px 3px rgba(36, 180, 126, 0.4); }
+  .button:hover {
+    transform: translateY(-1px);
+    background-position: bottom center;
+    opacity: 0.9;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.05), 0 3px 6px rgba(0, 0, 0, 0.05); }
+  .button.primary {
+    background: #5482ed;
+    color: #f3f4f4; }
 
 @keyframes App-logo-spin {
   from {

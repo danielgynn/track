@@ -15,7 +15,7 @@ body {
 
 .app-header {
   background-color: $color-night;
-  height: 180px;
+  height: 240px;
   padding: 20px;
   color: $color-neue;
 }
@@ -26,6 +26,41 @@ body {
 
 .app-intro {
   font-size: large;
+}
+
+.button {
+  white-space: nowrap;
+  display: inline-block;
+  height: $input-height;
+  line-height: $input-height;
+  background: $color-neue;
+  padding: 0 14px;
+  box-shadow: 0 4px 1px rgba(50,50,93,.05), 0 1px 3px rgba(0,0,0,.05);
+  border-radius: $button-radius;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  color: $color-night;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-speed ease;
+  background-size: 200% auto;
+  text-shadow: 0 1px 3px rgba(36, 180, 126, .4);
+
+  &:hover {
+    transform: translateY(-1px);
+    background-position: bottom center;
+    opacity: $opa-fade;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .05), 0 3px 6px rgba(0, 0, 0, .05);
+  }
+
+  &.primary {
+    background: $color-primary;
+    color: $color-neue;
+  }
 }
 
 @keyframes App-logo-spin {
