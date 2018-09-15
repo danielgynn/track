@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { getAppHeader } from '../actions/actions';
-import logo from '../logo.svg';
 
 export default class App extends Component {
   constructor(props) {
@@ -12,16 +10,32 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.timeoutHandle = setTimeout(() => {
+      this.redirectToLogin();
+    }, 5000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutHandle);
+  }
+
+  redirectToLogin() {
+    this.props.history.push('/login');
+  }
+
   render() {
     return (
-      <div className="app">
-        <header className="app-header">
-          <img src={logo} className="app-logo" alt="logo" />
+      <div className="splash-screen splash-image" onClick={ () => this.redirectToLogin() }>
+        <div></div>
+        <header className="splash-header">
           <h1 className="app-title">{ this.state.header.title }</h1>
           <p className="app-intro">{ this.state.header.subtitle }</p>
-
-          <Link className="button primary" to="/login">Login</Link>
         </header>
+
+        <div>
+          <p className="helper-text">Click to continue</p>
+        </div>
       </div>
     )
   }

@@ -5,7 +5,7 @@ export function getAppHeader() {
     type: GET_APP_HEADER,
     header: {
       title: 'Track',
-      subtitle: 'Keep track of your progress towards achieving personal goals and habits.'
+      subtitle: 'Keep track of your progress towards achieving personal goals and creating daily habits.'
     }
   };
 }
