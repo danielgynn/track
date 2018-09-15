@@ -1,0 +1,21 @@
+# Linting config file for Sass directory
+
+linters:
+  Indentation:
+    enabled: true
+    character: space
+    width: 2
+  PropertySortOrder:
+    enabled: false
+  NestingDepth:
+    max_depth: 6
+  SelectorDepth:
+    max_depth: 6
+  ImportantRule:
+    enabled: false
+  VendorPrefix:
+    enabled: false
+  QualifyingElement:
+    enabled: false
+  PlaceholderInExtend:
+    enabled: false
