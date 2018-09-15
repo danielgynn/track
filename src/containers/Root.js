@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { App, Login } from '../pages';
+import { Splash, Login } from '../pages';
 
 const routes = [{
   path: "/",
   exact: true,
-  component: App
+  component: Splash
 },{
   path: "/login",
   exact: true,

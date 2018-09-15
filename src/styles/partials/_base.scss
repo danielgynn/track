@@ -6,6 +6,19 @@ body {
   color: $color-night;
 }
 
+html {
+  background: $color-neue;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: $line-height;
+}
+
+*:focus {
+  outline: 0;
+}
+
 .splash-screen {
   text-align: center;
   height: 100vh;
@@ -14,6 +27,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  overflow: hidden;
 
   &.splash-image {
     background-position: center;
@@ -28,6 +42,11 @@ body {
     right: 0;
     position: absolute;
     z-index: -1;
+  }
+
+  &.splash-center {
+    justify-content: center;
+    // flex-direction: unset;
   }
 
   .splash-header {
@@ -50,6 +69,22 @@ body {
     }
   }
 
+  .splash-login-box {
+    margin: 20px;
+    padding: 30px;
+    width: 90%;
+    border-radius: $button-radius;
+    background-color: rgba($color-night, .2);
+
+    form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
   .helper-text {
     color: $color-neue;
     letter-spacing: 8px;
@@ -63,11 +98,6 @@ body {
   padding: 20px;
 }
 
-.app-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .app-title {
   font-size: 1.5em;
 }
@@ -77,13 +107,13 @@ body {
 }
 
 .button {
-  white-space: nowrap;
   display: inline-block;
+  white-space: nowrap;
   height: $input-height;
   line-height: $input-height;
   background: $color-neue;
   padding: 0 14px;
-  box-shadow: 0 4px 1px rgba(50,50,93,.05), 0 1px 3px rgba(0,0,0,.05);
+  box-shadow: 0 4px 1px rgba(50,50,93,.1), 0 1px 3px rgba(0,0,0,.1);
   border-radius: $button-radius;
   font-size: 15px;
   font-weight: 600;
@@ -109,9 +139,54 @@ body {
     background: $color-primary;
     color: $color-neue;
   }
+
+  &.disabled,
+  &[disabled] {
+    color: $color-neue;
+    background: darken($color-accent, 20%);
+    pointer-events: none;
+    opacity: .4;
+  }
+
+  &.wide {
+    width: 100%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+input {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: .8rem;
+  height: $input-height - $input-border-bottom;
+  line-height: $input-height - $input-border-bottom;
+  padding: 5px 0;
+  border-radius: 0;
+  font-weight: 300;
+  color: inherit;
+  background: inherit;
+  border: 0;
+  border-bottom: $input-border-bottom solid transparent;
+  outline: none;
+
+  &[disabled] {
+    opacity: $opa-fade;
+
+    &.cursor {
+      cursor: pointer !important;
+    }
+  }
+
+  &.primary {
+    color: $color-night;
+    border-bottom: $input-border-bottom solid lighten($color-primary, 10%);
+
+    &:focus {
+      border-bottom: $input-border-bottom solid $color-primary;
+    }
+
+    &::placeholder {
+      color: $color-night;
+      opacity: $opa-fade;
+    }
+  }
 }

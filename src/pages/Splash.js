@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getAppHeader } from '../actions/actions';
 
-export default class App extends Component {
+export default class Splash extends Component {
   constructor(props) {
     super(props);
 
@@ -28,6 +28,7 @@ export default class App extends Component {
     return (
       <div className="splash-screen splash-image" onClick={ () => this.redirectToLogin() }>
         <div></div>
+
         <header className="splash-header">
           <h1 className="app-title">{ this.state.header.title }</h1>
           <p className="app-intro">{ this.state.header.subtitle }</p>
